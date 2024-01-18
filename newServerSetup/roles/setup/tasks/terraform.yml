@@ -6,17 +6,10 @@
     mode: '0644'
     force: true
 
-- name: Get output of 'lsb_release -cs' for the Repository
-  command: lsb_release -cs
-  register: "TF_DIST"
-
-- set_fact:
-    TF_DIST = {{ TF_DIST.stdout }}
-
 - name: Add Hashicorp Repository
   apt_repository:
     filename: hashicorp.list
-    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ TF_DIST }} main"
+    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ lsbOutput }} main"
 
 - name: Update apt repositories
   apt:

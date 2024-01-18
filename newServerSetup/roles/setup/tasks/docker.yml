@@ -6,13 +6,6 @@
     mode: '0644'
     force: true
 
-- name: Get output of 'dpkg --print-architecture' for the Repository
-  command: dpkg --print-architecture
-  register: "dpkgOutput"
-
-- set_fact:
-    dpkgOutput={{ dpkgOutput.stdout }}
-
 - name: Get output of '. /etc/os-release && echo "$VERSION_CODENAME"' for the Repository
   command: . /etc/os-release && echo "$VERSION_CODENAME"
   register: "osReleaseOutput"

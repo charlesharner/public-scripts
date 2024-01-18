@@ -21,3 +21,17 @@
     mode: '0600'
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
+
+- name: Get output of 'dpkg --print-architecture' for the Repository
+  command: dpkg --print-architecture
+  register: "dpkgOutput"
+
+- set_fact:
+    dpkgOutput={{ dpkgOutput.stdout }}
+
+- name: Get output of 'lsb_release -cs' for the Repository
+  command: lsb_release -cs
+  register: "lsbOutput"
+
+- set_fact:
+    lsbOutput={{ lsbOutput.stdout }}

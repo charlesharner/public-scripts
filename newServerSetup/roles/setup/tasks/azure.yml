@@ -7,17 +7,10 @@
     mode: '0644'
     force: true
 
-- name: Get output of 'lsb_release -cs' for the Repository
-  command: lsb_release -cs
-  register: "AZ_DIST"
-
-- set_fact:
-    AZ_DIST={{ AZ_DIST.stdout }}
-
 - name: Add Microsoft Repository
   apt_repository:
     filename: azure-cli
-    repo: "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ {{ AZ_DIST }} main"
+    repo: "deb [arch={{ dpkgOutput }} signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ {{ lsbOutput }} main"
 
 - name: Update apt repositories
   apt:
