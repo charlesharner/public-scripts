@@ -17,9 +17,6 @@
   apt_repository:
     filename: docker.list
     repo: "deb [arch={{ dpkgOutput }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ osReleaseOutput }} stable"
-
-- name: Update apt repositories
-  apt:
     update_cache: yes
 
 - name: Install Docker packages
