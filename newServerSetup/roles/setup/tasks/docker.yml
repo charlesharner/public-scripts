@@ -11,14 +11,14 @@
   register: "dpkgOutput"
 
 - set_fact:
-    dpkgOutput={{ dpkgOutput.stdout_lines }}
+    dpkgOutput={{ dpkgOutput.stdout }}
 
 - name: Get output of '. /etc/os-release && echo "$VERSION_CODENAME"' for the Repository
   command: . /etc/os-release && echo "$VERSION_CODENAME"
   register: "osReleaseOutput"
 
 - set_fact:
-    osReleaseOutput={{ osReleaseOutput.stdout_lines }}
+    osReleaseOutput={{ osReleaseOutput.stdout }}
 
 - name: Add Docker Repository
   apt_repository:

@@ -11,7 +11,7 @@
   register: "TF_DIST"
 
 - set_fact:
-    TF_DIST = {{ TF_DIST.stdout_lines }}
+    TF_DIST = {{ TF_DIST.stdout }}
 
 - name: Add Hashicorp Repository
   apt_repository:
