@@ -1,0 +1,5 @@
+### defaults/main.yml
+---
+
+git_email: "youremail@domain.null"
+git_name: "firstName lastName"

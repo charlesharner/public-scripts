@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars_prompt:
+    - name: git_email
+      prompt: Type in your git email address:
+    - name: git_name
+      prompt: Type in your git name:
+  roles:
+    - setup

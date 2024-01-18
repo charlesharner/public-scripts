@@ -1,0 +1,22 @@
+### defaults/main.yml
+---
+prereq_packages:
+  - ca-certificates
+  - curl
+  - gnupg
+  - software-properties-common
+  - lsb-release
+  - apt-transport-https
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+
+terraform_packages:
+  - terraform
+
+azure_packages:
+  - azure-cli

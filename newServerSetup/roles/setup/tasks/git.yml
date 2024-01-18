@@ -1,0 +1,14 @@
+---
+- name: Generating github SSH Key
+  openssh_keypair:
+    path: /home/{{ ansible_user_id }}/.ssh/github
+    type: ed25519
+    state: present
+    
+- name: Install .gitconfig into home folder
+  template:
+    src: .gitconfig.j2
+    dest: /home/{{ ansible_user_id }}/.gitconfig
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: '0600'

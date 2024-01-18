@@ -1,0 +1,6 @@
+---
+- import_tasks: prereq.yml
+- import_tasks: git.yml
+- import_tasks: azure.yml
+- import_tasks: docker.yml
+- import_tasks: terraform.yml

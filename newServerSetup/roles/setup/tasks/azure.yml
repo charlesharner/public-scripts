@@ -1,0 +1,28 @@
+---
+
+- name: Import Microsoft Apt Signing Key
+  get_url:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: /etc/apt/keyrings/microsoft.asc
+    mode: '0644'
+    force: true
+
+- name: Get output of 'lsb_release -cs' for the Repository
+  command: lsb_release -cs
+  register: "AZ_DIST"
+
+- name: Add Microsoft Repository
+  apt_repository:
+    filename: azure-cli
+    repo: "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ {{ AZ_DIST }} main"
+
+- name: Update apt repositories
+  apt:
+    update_cache: yes
+
+- name: Install Azure packages
+  packages:
+    name: "{{ item }}"
+    state: present
+  loop: 
+    - azure_packages
