@@ -24,7 +24,7 @@
     update_cache: yes
 
 - name: Install Docker packages
-  packages:
+  package:
     name: "{{ item }}"
     state: present
   loop: 

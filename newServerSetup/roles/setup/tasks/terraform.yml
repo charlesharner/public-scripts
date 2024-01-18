@@ -20,7 +20,7 @@
     update_cache: yes
 
 - name: Install Terraform packages
-  packages:
+  package:
     name: "{{ item }}"
     state: present
   loop: 

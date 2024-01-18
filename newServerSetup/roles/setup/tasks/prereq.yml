@@ -1,6 +1,6 @@
 ---
 - name: Install pre-requisite packages 
-  packages:
+  package:
     name: "{{ item }}"
     state: present
   loop: 
