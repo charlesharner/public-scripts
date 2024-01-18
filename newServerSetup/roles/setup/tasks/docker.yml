@@ -18,3 +18,9 @@
     state: present
   loop: 
     - "{{ docker_packages }}"
+
+- name: Add current user to Docker group
+  user: 
+    name: "{{ ansible_user_id }}"
+    groups: docker 
+    append: yes

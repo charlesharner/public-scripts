@@ -2,14 +2,14 @@
 - name: Import Hashicorp Apt Signing Key
   get_url:
     url: https://apt.releases.hashicorp.com/gpg
-    dest: /etc/apt/keyrings/hashicorp-archive-keyring.gpg
+    dest: /etc/apt/keyrings/hashicorp-archive-keyring.asc
     mode: '0644'
     force: true
 
 - name: Add Hashicorp Repository
   apt_repository:
     filename: hashicorp.list
-    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ lsbOutput }} main"
+    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com {{ lsbOutput }} main"
     update_cache: yes
 
 - name: Install Terraform packages
