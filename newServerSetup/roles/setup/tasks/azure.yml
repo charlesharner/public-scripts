@@ -11,6 +11,9 @@
   command: lsb_release -cs
   register: "AZ_DIST"
 
+- set_fact:
+    AZ_DIST={{ AZ_DIST.stdout_lines }}
+
 - name: Add Microsoft Repository
   apt_repository:
     filename: azure-cli

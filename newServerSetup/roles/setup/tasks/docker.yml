@@ -10,14 +10,20 @@
   command: dpkg --print-architecture
   register: "dpkgOutput"
 
+- set_fact:
+    dpkgOutput={{ dpkgOutput.stdout_lines }}
+
 - name: Get output of '. /etc/os-release && echo "$VERSION_CODENAME"' for the Repository
   command: . /etc/os-release && echo "$VERSION_CODENAME"
   register: "osReleaseOutput"
 
+- set_fact:
+    osReleaseOutput={{ osReleaseOutput.stdout_lines }}
+
 - name: Add Docker Repository
   apt_repository:
     filename: docker.list
-    repo: "deb [arch={{ dpkgOutput.stdout_lines }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ osReleaseOutput.stdout_lines }} stable"
+    repo: "deb [arch={{ dpkgOutput }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ osReleaseOutput }} stable"
 
 - name: Update apt repositories
   apt:
