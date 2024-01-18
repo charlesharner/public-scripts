@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- hosts: localhost
+  connection: local
   vars_prompt:
     - name: git_email
       prompt: Type in your git email address
