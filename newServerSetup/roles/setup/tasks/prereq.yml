@@ -4,7 +4,7 @@
     name: "{{ item }}"
     state: present
   loop: 
-    - {{ prereq_packages }}
+    - "{{ prereq_packages }}"
 
 - name: Create keyring directory
   file: 

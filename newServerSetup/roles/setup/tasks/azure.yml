@@ -25,4 +25,4 @@
     name: "{{ item }}"
     state: present
   loop: 
-    - azure_packages
+    - "{{ azure_packages }}"

@@ -28,4 +28,4 @@
     name: "{{ item }}"
     state: present
   loop: 
-    - docker_packages
+    - "{{ docker_packages }}"

@@ -24,4 +24,4 @@
     name: "{{ item }}"
     state: present
   loop: 
-    - terraform_packages
+    - "{{ terraform_packages }}"
