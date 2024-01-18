@@ -6,4 +6,4 @@
     - name: git_name
       prompt: Type in your git name:
   roles:
-    - setup
+    - ../roles/setup
