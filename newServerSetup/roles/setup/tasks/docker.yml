@@ -17,7 +17,7 @@
 - name: Add Docker Repository
   apt_repository:
     filename: docker.list
-    repo: "deb [arch={{ dpkgOutput }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu  $(. /etc/os-release && echo {{ osReleaseOutput }}) stable"
+    repo: "deb [arch={{ dpkgOutput.stdout_lines }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ osReleaseOutput.stdout_lines }} stable"
 
 - name: Update apt repositories
   apt:

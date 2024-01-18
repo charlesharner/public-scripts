@@ -13,7 +13,7 @@
 - name: Add Hashicorp Repository
   apt_repository:
     filename: hashicorp.list
-    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ TF_DIST }} main"
+    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ TF_DIST.stdout_lines }} main"
 
 - name: Update apt repositories
   apt:
