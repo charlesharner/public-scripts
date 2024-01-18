@@ -13,3 +13,11 @@
     mode: '0755'
     owner: root
     group: root
+
+- name: Create .ssh directory
+  file: 
+    path: /home/{{ ansible_user_id }}/.ssh
+    state: directory
+    mode: '0600'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
