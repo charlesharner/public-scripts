@@ -1,0 +1,10 @@
+### Terraform ###
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+
+### VS Code ###
+# Local VS Code Files
+**/.vscode/*
