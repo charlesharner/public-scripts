@@ -6,17 +6,10 @@
     mode: '0644'
     force: true
 
-- name: Get output of '. /etc/os-release && echo "$VERSION_CODENAME"' for the Repository
-  command: . /etc/os-release && echo "$VERSION_CODENAME"
-  register: "osReleaseOutput"
-
-- set_fact:
-    osReleaseOutput={{ osReleaseOutput.stdout }}
-
 - name: Add Docker Repository
   apt_repository:
     filename: docker.list
-    repo: "deb [arch={{ dpkgOutput }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ osReleaseOutput }} stable"
+    repo: "deb [arch={{ dpkgOutput }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ lsbOutput }} stable"
     update_cache: yes
 
 - name: Install Docker packages
