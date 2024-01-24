@@ -6,6 +6,7 @@ Pre-Requisites:
 * Actually cloning the repo and running it
 
 Here's a quick set of commands to accomplish this:
+```
 sudo apt-add-repostiory ppa:ansible/ansible
 sudo apt update
 sudo apt install git ansible
@@ -14,3 +15,4 @@ cd ~
 git clone https://github.com/charlesharner/public-scripts.git
 cd public-scripts/newServerSetup
 ansible-playbook playbooks/setup.yml
+```
