@@ -9,7 +9,7 @@
 - name: Add Hashicorp Repository
   apt_repository:
     filename: hashicorp.list
-    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com {{ lsbOutput }} main"
+    repo: "deb [signed-by=/usr/apt/keyrings/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com {{ lsbOutput }} main"
     update_cache: yes
 
 - name: Install Terraform packages
