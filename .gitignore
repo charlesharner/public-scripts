@@ -8,3 +8,8 @@
 ### VS Code ###
 # Local VS Code Files
 **/.vscode/*
+
+# Ignore vim files:
+*~
+*.swp
+*.swo
